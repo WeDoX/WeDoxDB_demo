@@ -2,7 +2,7 @@
 Sqlite数据库操作框架WeDoXDB
 
 # 使用指南
-### 1、创建Bean类
+### 1、创建Bean类（必须要有无参构造方法、有主键、主键也需要加上 @Column）
 ~~~~
 public class CatBean {
     @PrimaryKey
