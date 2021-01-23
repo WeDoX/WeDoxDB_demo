@@ -1,5 +1,23 @@
-# WeDoxDB_demo
+# WeDoxDB_demo [![](https://jitpack.io/v/WeDox/WeDoxDB_demo.svg)](https://jitpack.io/#WeDox/WeDoxDB_demo)
 Sqlite数据库操作框架WeDoXDB
+
+#### How to use?
+Step 0.Add it in your root build.gradle at the end of repositories:
+~~~~~~~~~
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+~~~~~~~~~
+Step 1. Add the dependency
+~~~~~~~~~
+dependencies {
+	        implementation 'com.github.WeDox:WeDoxDB_demo:'1.0.0'
+	}
+~~~~~~~~~
+Step 2.to use
 
 # 使用指南
 ### 1、创建Bean类（必须要有无参构造方法、有主键、主键也需要加上 @Column）
