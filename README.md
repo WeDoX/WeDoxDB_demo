@@ -14,7 +14,7 @@ allprojects {
 Step 1. Add the dependency
 ~~~~~~~~~
 dependencies {
-	        implementation 'com.github.WeDox:WeDoxDB_demo:'1.0.0'
+	        implementation 'com.github.WeDox:WeDoxDB_demo:1.0.0'
 	}
 ~~~~~~~~~
 Step 2.to use
