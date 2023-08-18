@@ -461,7 +461,8 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                         _field.set(obj, attribute);
                         break;
                     }
-                } else if (typeClass.getName().equals("java.util.ArrayList") || typeClass.getName().equals("java.util.List") || typeClass.getName().equals("com.android.tools.fd.runtime.IncrementalChange")) {
+                } else if (typeClass.getName().equals("[Z") || typeClass.getName().equals("java.util.ArrayList") || typeClass.getName().equals("java.util.List") || typeClass.getName().equals("com.android.tools.fd.runtime.IncrementalChange")) {
+                   //private static transient boolean[] .$jacocoData
                     break;
                 } else {
                     Object obj2 = setValues2Fields(c, typeClass);// 递归
