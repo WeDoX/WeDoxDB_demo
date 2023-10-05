@@ -443,6 +443,13 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         Field[] fields = clazz.getDeclaredFields();
 
         for (Field _field : fields) {
+            //修复：报错not find column $.jacocoData
+            //private static transient boolean[] .$jacocoData
+            if(_field.isSynthetic()){ //判断一下当前字段是否为复合字段
+                printLog("我是复合字段，不处理:"+_field.toString());
+                break;//复合字段不处理
+            }
+            //
             Class<? extends Object> typeClass = _field.getType();// 属性类型
             for (String columnName : columnNames) {
                 typeClass = DBUtils.getBasicClass(typeClass);
@@ -461,8 +468,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                         _field.set(obj, attribute);
                         break;
                     }
-                } else if (typeClass.getName().equals("[Z") || typeClass.getName().equals("java.util.ArrayList") || typeClass.getName().equals("java.util.List") || typeClass.getName().equals("com.android.tools.fd.runtime.IncrementalChange")) {
-                   //private static transient boolean[] .$jacocoData
+                } else if (typeClass.getName().equals("java.util.ArrayList") || typeClass.getName().equals("java.util.List") || typeClass.getName().equals("com.android.tools.fd.runtime.IncrementalChange")) {
                     break;
                 } else {
                     Object obj2 = setValues2Fields(c, typeClass);// 递归
